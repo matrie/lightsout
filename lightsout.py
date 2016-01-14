@@ -1,6 +1,4 @@
 # -*- coding:utf-8 -*-
-#
-# written by ssh0, June 2014.
 
 import numpy as np
 import sys
@@ -9,12 +7,9 @@ import os
 
 class Lightsout:
 
-    #def __init__(self, L=5, rule="2 3/3"):
     def __init__(self, L=5):
         self.L = L # lattice size
         p = 0.5
-#        self.survive = [int(i) for i in rule.split("/")[0].split()]
-#        self.birth = [int(i) for i in rule.split("/")[1].split()]
         lattice = np.random.random([self.L+2, self.L+2])
         self.lattice = lattice<p
         #i_latticeは全てFalseに揃える
