@@ -113,10 +113,6 @@ class Lightsout:
                     buf += "0"
             f.write(buf)
             f.write("\n\n")
-            #refresh i_lattice
-            i_lattice = np.zeros([self.L+2, self.L+2])
-            self.i_lattice = i_lattice>0.2
-
             f.close()
 
         elif i_mode:
@@ -164,6 +160,10 @@ class Lightsout:
         #for i in range(1, 2**maxnum):
         #上の条件ではself.L=6で網羅できなかった
         for i in range(1, 2**self.L):
+            #refresh i_lattice
+            i_lattice = np.zeros([self.L+2, self.L+2])
+            self.i_lattice = i_lattice>0.2
+
             f = open("ans.txt","a")
             buf = ""
             for j in range(0, self.L):
@@ -176,7 +176,6 @@ class Lightsout:
                     self.pushlight(m+1, 1, True)
             f.close()
             self.gatherligths(True)
-        f.close()
         print "[createfile]done."
 
 
