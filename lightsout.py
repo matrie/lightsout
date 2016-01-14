@@ -320,9 +320,6 @@ class Lightsout:
         #カンマとコマンドの長さで構文エラーを判定、条件は改善の余地あり?
         if command.find(',')==-1 or command.find(',') != command.rfind(',') or len(command) > 30:
             print "sintax errer"
-            print "Please input as number,number"
-            print "continue to press enter key..."
-            raw_input()
             return
 
         #コマンドを数値に変換
@@ -335,7 +332,7 @@ class Lightsout:
             elif letter == ",":
                 if buf == "":
                     print "[inputcommand]sintax error"
-                    break
+                    return
                 m = int(buf)
                 buf = ""
                 continue
@@ -343,6 +340,9 @@ class Lightsout:
                 buf += letter
                 #print "add " + letter + " to buff"
                 continue
+        if buf == "":
+            print "[inputcommand]sintax error"
+            return
         n = int(buf)
         if m > self.L or n > self.L:
             print "errer: number too large"
