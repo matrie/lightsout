@@ -166,7 +166,7 @@ class Lightsout:
         print "[createfile]start"
         f = open("ans.txt","w")
         f.close
-        maxnum = self.L/2 + 1
+        #maxnum = self.L/2 + 1
         #for i in range(1, 2**maxnum):
         #上の条件ではself.L=6で網羅できなかった
         for i in range(1, 2**self.L):
