@@ -220,7 +220,6 @@ class Lightsout:
         offset = self.L+3
         #use like offset+linefirst
         linefirst = 0
-        howpush = 1
         solution = self.L+1
         for loffset in range(1, (2**self.L-1)*offset, offset):
             #print "[judgesolution]search itemList["+str(loffset+solution)+"]"
@@ -240,6 +239,7 @@ class Lightsout:
         self.judgesolution()
         if self.solLine == 0:
             print "[findsolution]error:can't find solution!!!!"
+            return
 
         f = open('ans.txt', 'r')
         itemList = []
@@ -305,9 +305,6 @@ class Lightsout:
             return 
         if command == "gather":
             self.gatherligths()
-            return 
-        if command == "create":
-            self.createansfile()
             return 
         if command == "judge":
             self.judgesolution()
