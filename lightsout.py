@@ -37,7 +37,6 @@ class Lightsout:
             l += "\n"
         print l
         print ""
-        time.sleep(0.1)
 
     def print_i(self):
         print "\n"
