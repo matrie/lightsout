@@ -226,7 +226,7 @@ class Lightsout:
             #print itemList[loffset+solution-1]
             #itemListは[0]から始まる
             if itemList[loffset+solution-1] == buflist:
-                print "[judgesolution]find!"
+                #print "[judgesolution]find!"
                 self.solLine = loffset+solution
                 print "[judgesolution]ansline = "+ "".join(itemList[self.solLine-self.L-2])
                 return
@@ -295,7 +295,7 @@ class Lightsout:
             while self.solLine == 0:
                 self.__init__()
                 self.judgesolution()
-            print "[inputcommand]solLine = "+ str(self.solLine) 
+            #print "[inputcommand]solLine = "+ str(self.solLine) 
             return 
         if command == "answer":
             self.findsolution()
@@ -315,7 +315,7 @@ class Lightsout:
             return 
         #カンマとコマンドの長さで構文エラーを判定、条件は改善の余地あり?
         if command.find(',')==-1 or command.find(',') != command.rfind(',') or len(command) > 30:
-            print "sintax errer"
+            print "[inputcommand]syntax errer"
             return
 
         #コマンドを数値に変換
@@ -327,7 +327,7 @@ class Lightsout:
                 continue
             elif letter == ",":
                 if buf == "":
-                    print "[inputcommand]sintax error"
+                    print "[inputcommand]syntax error"
                     return
                 m = int(buf)
                 buf = ""
@@ -337,7 +337,7 @@ class Lightsout:
                 #print "add " + letter + " to buff"
                 continue
         if buf == "":
-            print "[inputcommand]sintax error"
+            print "[inputcommand]syntax error"
             return
         n = int(buf)
         if m > self.L or n > self.L:
@@ -349,6 +349,8 @@ class Lightsout:
             self.pushlight(m, n)
 
     def progress(self):
+        #clear display
+        os.system("cls")
         #解判定用ファイルがなければ生成
         if not os.path.exists("./ans.txt"):
             self.createansfile()
@@ -357,7 +359,7 @@ class Lightsout:
         while self.solLine == 0:
             self.__init__()
             self.judgesolution()
-        print "[progress]solLine = "+ str(self.solLine) 
+        #print "[progress]solLine = "+ str(self.solLine) 
 
         try:
             while 1:
