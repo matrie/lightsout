@@ -205,6 +205,7 @@ class Lightsout:
             itemList.append(line[:-1].split('\n'))
         f.close()
 
+        #answerfileが今のlatticeのサイズに合わなければans.txtを再生成
         if not "".join(itemList[self.L+3-1]) == "":
             self.createansfile()
             f = open('ans.txt', 'r')
@@ -363,7 +364,7 @@ class Lightsout:
 
         try:
             while 1:
-                lo.inputcommand()
+                self.inputcommand()
         except KeyboardInterrupt:
             print "stopped."
 
